@@ -51,6 +51,12 @@ describe("Thermostat", function() {
       thermostat._checkColour();
       expect(thermostat.displayColour).toEqual("green");
     });
+
+    it("displays red when the temperature is 25 or more", function() {
+      thermostat.temperature = 25;
+      thermostat._checkColour();
+      expect(thermostat.displayColour).toEqual("red");
+    });
   });
 
   describe("powerSaving off", function() {

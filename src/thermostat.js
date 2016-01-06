@@ -35,6 +35,8 @@ Thermostat.prototype._setMaxTemp = function(maximum) {
 Thermostat.prototype._checkColour = function() {
   if (this.temperature <= 18) {
      this.displayColour = "green";
+  } else if(this.temperature >= 25) {
+    this.displayColour = "red";
   } else {
      this.displayColour = "yellow";
   }
