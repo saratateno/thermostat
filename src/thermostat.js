@@ -41,14 +41,6 @@ Thermostat.prototype.isPowerSavingOn = function() {
   return this.powerSaving === true;
 };
 
-Thermostat.prototype._isMinTemp = function() {
-  return this.temperature === this.MINIMUM_TEMPERATURE;
-};
-
-Thermostat.prototype._setMaxTemp = function(maximum) {
-  return this.temperature >= maximum ? this.temperature = maximum : this.temperature += 1;
-};
-
 Thermostat.prototype.energyUsage = function() {
   if (this.temperature <= this.MEDIUM_ENERGY_USE_LIMIT) {
      this.energyUsage = "low";
@@ -57,4 +49,12 @@ Thermostat.prototype.energyUsage = function() {
   } else {
      this.energyUsage = "medium";
   }
+};
+
+Thermostat.prototype._isMinTemp = function() {
+  return this.temperature === this.MINIMUM_TEMPERATURE;
+};
+
+Thermostat.prototype._setMaxTemp = function(maximum) {
+  return this.temperature >= maximum ? this.temperature = maximum : this.temperature += 1;
 };

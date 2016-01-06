@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Thermostat</title>
+
+  <link rel="stylesheet" href="lib/jasmine-2.4.1/jasmine.css">
+</head>
+
+<body>
+  <section>
+    <button type="button" id="temp_up">Up</button>
+    <button type="button" id="temp_down">Down</button>
+    <button type="button" id="temp_reset">Reset</button>
+    <button type="button" id="PSM_switch">PSM Switch</button>
+    <h1 id="temperature"> Temperature </h1>
+    <p id="PSM_status"> Power Saving Mode On / Off </p>
+    <div class="energy_usage" id="low"> Low </div>
+    <div class="energy_usage" id="medium"> Medium </div>
+    <div class="energy_usage" id="high"> High </div>
+  </section>
+
+  <script src="src/thermostat.js"></script>
+</body>
+
+</html>
