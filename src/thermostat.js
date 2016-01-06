@@ -18,7 +18,6 @@ Thermostat.prototype.up = function() {
   } else {
       this._setMaxTemp(this.MAX_LIMIT_PSM_OFF);
   }
-  this._checkColour();
 };
 
 Thermostat.prototype.down = function() {
@@ -26,7 +25,6 @@ Thermostat.prototype.down = function() {
     return;
   }
   this.temperature -= 1;
-  this._checkColour();
 };
 
 Thermostat.prototype.switchPowerSaving = function() {
