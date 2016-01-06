@@ -41,6 +41,18 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
+  describe("colours the display according to temperature", function() {
+    it("displays yellow when the temperature is between 18 to 25", function() {
+      expect(thermostat.displayColour).toEqual("yellow");
+    });
+
+    it("displays green when the temperature is 18 or less", function() {
+      thermostat.temperature = 18;
+      thermostat._checkColour();
+      expect(thermostat.displayColour).toEqual("green");
+    });
+  });
+
   describe("powerSaving off", function() {
     beforeEach(function() {
       thermostat.powerSaving = false;
