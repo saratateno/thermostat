@@ -25,7 +25,31 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(10);
   });
 
-  describe("powerSaving", function() {
+
+    it("can turn powerSaving off", function() {
+      thermostat.switchPowerSaving();
+      expect(thermostat.powerSaving).toBe(false);
+    });
+
+    it("can turn powerSaving on", function() {
+      thermostat.switchPowerSaving();
+      thermostat.switchPowerSaving();
+      expect(thermostat.powerSaving).toBe(true);
+    });
+
+  describe("powerSaving off", function() {
+    beforeEach(function() {
+      thermostat.powerSaving = false;
+    });
+
+    it("has a maximum temperature of 32 degrees", function() {
+      thermostat.temperature = 32;
+      thermostat.up();
+      expect(thermostat.temperature).toEqual(32);
+    });
+  });
+
+  describe("powerSaving mode", function() {
     it("has a power saving mode on by default", function() {
       expect(thermostat.powerSaving).toBe(true);
     });
