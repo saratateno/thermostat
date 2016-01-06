@@ -1,22 +1,31 @@
 function Thermostat() {
-  this.temperature = 20;
+  this.DEFAULT_TEMP = 20;
+  this.MINIMUM_TEMPERATURE = 10;
+  this.MEDIUM_ENERGY_USE_LIMIT = 18;
+  this.MAX_LIMIT_PSM_ON = 25;
+  this.MAX_LIMIT_PSM_OFF = 32;
+  this.temperature = this.DEFAULT_TEMP;
   this.powerSaving = true;
-  this.displayColour = "yellow";
 }
+
+Thermostat.prototype.getCurrentTemperature = function() {
+  return this.temperature;
+};
 
 Thermostat.prototype.up = function() {
   if (this.powerSaving) {
-      this._setMaxTemp(25);
+      this._setMaxTemp(this.MAX_LIMIT_PSM_ON);
   } else {
-      this._setMaxTemp(32);
+      this._setMaxTemp(this.MAX_LIMIT_PSM_OFF);
   }
   this._checkColour();
 };
 
 Thermostat.prototype.down = function() {
-  if(this.temperature > 10){
-    --this.temperature;
+  if(this._isMinTemp()){
+    return;
   }
+  this.temperature -= 1;
   this._checkColour();
 };
 
@@ -25,19 +34,27 @@ Thermostat.prototype.switchPowerSaving = function() {
 };
 
 Thermostat.prototype.resetTemp = function() {
-  this.temperature = 20;
+  this.temperature = this.DEFAULT_TEMP;
+};
+
+Thermostat.prototype.isPowerSavingOn = function() {
+  return this.powerSaving === true;
+};
+
+Thermostat.prototype._isMinTemp = function() {
+  return this.temperature === this.MINIMUM_TEMPERATURE;
 };
 
 Thermostat.prototype._setMaxTemp = function(maximum) {
-  return this.temperature >= maximum ? this.temperature = maximum : ++this.temperature;
+  return this.temperature >= maximum ? this.temperature = maximum : this.temperature += 1;
 };
 
-Thermostat.prototype._checkColour = function() {
-  if (this.temperature <= 18) {
-     this.displayColour = "green";
-  } else if(this.temperature >= 25) {
-    this.displayColour = "red";
+Thermostat.prototype.energyUsage = function() {
+  if (this.temperature <= this.MEDIUM_ENERGY_USE_LIMIT) {
+     this.energyUsage = "low";
+  } else if(this.temperature >= this.MAX_LIMIT_PSM_ON) {
+    this.energyUsage = "high";
   } else {
-     this.displayColour = "yellow";
+     this.energyUsage = "medium";
   }
 };
