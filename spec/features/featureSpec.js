@@ -25,17 +25,21 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(10);
   });
 
+  it("can turn powerSaving off", function() {
+    thermostat.switchPowerSaving();
+    expect(thermostat.powerSaving).toBe(false);
+  });
 
-    it("can turn powerSaving off", function() {
-      thermostat.switchPowerSaving();
-      expect(thermostat.powerSaving).toBe(false);
-    });
+  it("can turn powerSaving on", function() {
+    thermostat.switchPowerSaving();
+    thermostat.switchPowerSaving();
+    expect(thermostat.powerSaving).toBe(true);
+  });
 
-    it("can turn powerSaving on", function() {
-      thermostat.switchPowerSaving();
-      thermostat.switchPowerSaving();
-      expect(thermostat.powerSaving).toBe(true);
-    });
+  it("resets the temperature to 20", function() {
+    thermostat.resetTemp();
+    expect(thermostat.temperature).toEqual(20);
+  });
 
   describe("powerSaving off", function() {
     beforeEach(function() {

@@ -21,6 +21,10 @@ Thermostat.prototype.switchPowerSaving = function() {
   this.powerSaving = !this.powerSaving;
 };
 
+Thermostat.prototype.resetTemp = function() {
+  this.temperature = 20;
+};
+
 Thermostat.prototype._setMaxTemp = function(maximum) {
   return this.temperature >= maximum ? this.temperature = maximum : ++this.temperature;
 };
