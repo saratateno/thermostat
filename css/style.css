@@ -5,13 +5,51 @@ body {
   font-weight: 400;
   font-size: 20px;
   text-align: center;
+  max-height: 80em;
+  max-width: 40em;
+  color: #f0f0f0;
 }
 
-h1 {font-size: 2em; font-weight: 600;}
 h2 {font-size: 1.8em;}
 h3 {font-size: 1.6em;}
 h4 {font-size: 1.4em;}
 
 .low-usage { color: green; }
-.medium-usage { color: black; }
+.medium-usage { }
 .high-usage { color: red; }
+
+#temp {
+  font-size: 8em;
+  margin: 0.5em;
+  position: relative;
+  top: 0.1em;
+}
+
+.temp-control {
+	cursor:pointer;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.temp-control:hover {
+	text-shadow:0px 2px 0px white;
+}
+.temp-control:active {
+	position:relative;
+	top:1px;
+}
+
+main {
+  background-color: #0f0f0f;
+  border-radius: 7%;
+  background: black;
+}
+
+#thermostat {
+  border-top-left-radius: 7%;
+  border-top-right-radius: 7%;
+  background: -webkit-radial-gradient(black, #0043f7, #00f3f7);
+}
+
+#increaseTemp {
+  margin-top: 0.5em
+}

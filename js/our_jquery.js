@@ -8,7 +8,6 @@ function getLocation(){
 
   $.getJSON('https://freegeoip.net/json/').done(function(location) {
     userCity = location.city;
-  }, function(){
     deferred.resolve();
   });
 
@@ -47,6 +46,10 @@ getLocation().done(function(){
     thermy.switchPowerSaveMode();
     $( this ).text((thermy.isPowerSaveModeOn() ? "Turn powersave off" : "Turn powersave on"));
     updatetemperature();
+  });
+
+  $(".changeTemp").click(function(){
+    $(this).toggleClass('blue');
   });
 
   function updatetemperature() {

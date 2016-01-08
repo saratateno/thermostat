@@ -2,29 +2,34 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <script src="js/jquery-2.1.4.js"></script>
-    <script src="js/Thermostat.js"></script>
-    <script src="js/our_jquery.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <title>Fest</title>
   </head>
   <body>
-    <section id="thermostat">
-      <h1>Fest</h1>
-      <h3>The intelligent thermostat</h3>
-      <button type="button" id="increaseTemp">Heat it up!</button>
-      <section id="display">
-        <h1 id='temp'>20</h1>
-        <h4></h4>
-      </section>
-      <button type="button" id="decreaseTemp">Cool it down!</button>
+
+    <main>
+      <section id="thermostat">
+        <i class="fa fa-angle-up fa-4x temp-control" id="increaseTemp"></i>
+        <section id="display">
+          <h1 id='temp'>20</h1>
+        </section>
+        <i class="fa fa-angle-down fa-4x temp-control" id="decreaseTemp"></i>
+        <br />
       <button type="button" id="resetTemp">Reset</button>
       <button type="button" id="switchPowerSave">Turn powersave off</button>
-    </section>
+      </section>
+
     <section id="weather">
       <h2>Current weather in <span id="city"></span>:</h2>
       <h3><span id="outsideTemp"></span> C</h3>
       <h3 id="weatherCondition"></h3>
     </section>
+  </main>
+
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/Thermostat.js"></script>
+    <script src="js/our_jquery.js"></script>
   </body>
+
 </html>
